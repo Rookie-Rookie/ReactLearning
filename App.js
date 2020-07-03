@@ -71,6 +71,7 @@ class PageTasks extends React.Component{
   AddNewTaskItem(text){
     let newTaskList = this.state.totalTasks.reduce(function(arr, item){
       if(arr[0].Content === item.Content){
+        arr[0].State = item.State === "Done" ? "Done" : "New";//if this task exists, do not change its state
         return [].concat(arr);
       }else{
         return [].concat(arr, [item]);
@@ -80,14 +81,15 @@ class PageTasks extends React.Component{
   }  
 
   SetTaskAsDone(text){
-    //update new and done task list
-    let updateNewTaskList = [];
-    this.state.totalTasks.forEach(task => {
-      if(task.Content != text){
-        updateNewTaskList.push(task);
+    let updateTaskStateToDone = this.state.totalTasks.reduce(function(arr, task){
+      if(arr[0].Content === task.Content){
+        return [].concat(arr);
+      }else{
+        return [].concat(arr, [task]);
       }
-    });
-    this.setState({totalTasks: [...updateNewTaskList, {Content: text, State: "Done"}]});
+    }, [{Content: text, State: "Done"}]);
+
+    this.setState({totalTasks: updateTaskStateToDone});
   }
 
   render(){
@@ -103,7 +105,7 @@ class PageTasks extends React.Component{
       <div>
         <AddNewTask GetNewTask={this.AddNewTaskItem}/>
         <div>
-    {this.state.totalTasks.length > 0 && <h4 className="DisplayAllTasks-box">All tasks: (Task finish rate: <span>{taskFinishRate}</span>)</h4>}
+          {this.state.totalTasks.length > 0 && <h4 className="DisplayAllTasks-box">All tasks: (Task finish rate: <span>{taskFinishRate}</span>)</h4>}
           <DisplayAllTasks TaskList={this.state.totalTasks} SetTaskDone={this.SetTaskAsDone} />
         </div>
       </div>
@@ -114,9 +116,6 @@ class PageTasks extends React.Component{
 //show all tasks 
 class DisplayAllTasks extends React.Component{
   render(){
-    // const taskLists = this.props.TaskList.map((item) => 
-    //   <TaskItem content={item.Content} key={item.Content} state={this.props.TaskState} SetTaskDone={() => this.props.SetTaskDone(item.Content)} />
-    // );
     const newTaskItems=[];
     const doneTaskItems=[];
     this.props.TaskList.forEach(item =>{
