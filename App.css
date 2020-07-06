@@ -11,7 +11,7 @@
 
 
 /*pagetitle*/
-#PageTitle-div{
+#page-title{
   padding: 30px 50px;
   margin: 0px 10px 30px 10px;
   height: 100px;
@@ -19,31 +19,31 @@
   border-radius: 5px;
 }
 
-#PageTitle-div h2,p{
+#page-title h2,p{
   text-align: center;
 }
 
-/*AddNewTask-box*/
-#AddNewTask-box{
+/*add-new-task-box*/
+#add-new-task{
   border: 1px solid #ccc;
   border-radius: 5px;
   margin: 10px 10px;
   padding: 10px;
   display: flex;
 }
-#AddNewTask-box input{
+#add-new-task input{
   flex: 1;
   width: 60%;
 }
 
-#AddNewTask-box .AddNewTask-items{
+#add-new-task .add-new-task-items{
   display: inline-block;
   margin: 0 10px;
   padding: 5px 3px;
 }
 
 /* task items*/
-#DisplayAllTasks-box{
+#display-all-tasks{
   margin: 0 10px;
   
 }
@@ -66,20 +66,20 @@ ul li:hover{
   font-size: 15px;
 }
 
-ul li.TaskItem-New{
+ul li.task-item-New{
   background-color: beige;
 }
 
-ul li.TaskItem-Done{
+ul li.task-item-Done{
   background-color: lightgreen;
 }
 
-.TaskItem-state{
+.task-item-state{
   display: inline-block;
   padding: 0 3px;
 }
 
-.TaskItem-setdone{
+.task-item-setdone{
   display: block;
   position: relative;
   float: right;

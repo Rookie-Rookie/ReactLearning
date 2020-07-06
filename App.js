@@ -16,7 +16,7 @@ export default App;
 class PageTitle extends React.Component{
   render(){
     return (
-      <div id="PageTitle-div">
+      <div id="page-title">
         <h2>To Do List</h2>
         <p>{new Date().getFullYear() + "-" + (new Date().getMonth() + 1 ) + "-" + new Date().getDate()}</p>
       </div>
@@ -47,10 +47,10 @@ class AddNewTask extends React.Component{
 
   render(){
     return (
-      <div id="AddNewTask-box">
-        <span className="AddNewTask-items">Add a new Task:</span>
-        <input placeholder="Type something about your new task..." className="AddNewTask-items" onChange={this.InputChange} value={this.state.text}/> 
-        <button className="AddNewTask-items" onClick={this.SubmitNewTask}>Add</button>
+      <div id="add-new-task">
+        <span className="add-new-task-items">Add a new Task:</span>
+        <input placeholder="Type something about your new task..." className="add-new-task-items" onChange={this.InputChange} value={this.state.text}/> 
+        <button className="add-new-task-items" onClick={this.SubmitNewTask}>Add</button>
       </div>
       )
   }
@@ -105,7 +105,7 @@ class PageTasks extends React.Component{
       <div>
         <AddNewTask GetNewTask={this.AddNewTaskItem}/>
         <div>
-          {this.state.totalTasks.length > 0 && <h4 className="DisplayAllTasks-box">All tasks: (Task finish rate: <span>{taskFinishRate}</span>)</h4>}
+          {this.state.totalTasks.length > 0 && <h4>All tasks: (Task finish rate: <span>{taskFinishRate}</span>)</h4>}
           <DisplayAllTasks TaskList={this.state.totalTasks} SetTaskDone={this.SetTaskAsDone} />
         </div>
       </div>
@@ -125,7 +125,7 @@ class DisplayAllTasks extends React.Component{
     });
 
     return (
-      <div id="DisplayAllTasks-box">
+      <div id="display-all-tasks">
         {
           newTaskItems.length > 0 && 
           <div>
@@ -153,12 +153,12 @@ class DisplayAllTasks extends React.Component{
 class TaskItem extends React.Component{
   render(){
     return (
-      <li className={this.props.state === "New" ? "TaskItem-New" : "TaskItem-Done"}>
-        <span className="TaskItem-state">[{this.props.state}]</span>
+      <li className={this.props.state === "New" ? "task-item-New" : "task-item-Done"}>
+        <span className="task-item-state">[{this.props.state}]</span>
         {this.props.content}
         {
           this.props.state === "New" && 
-          <button className="TaskItem-setdone" onClick={this.props.SetTaskDone}>Done</button>
+          <button className="task-item-setdone" onClick={this.props.SetTaskDone}>Done</button>
         }
         
       </li>
