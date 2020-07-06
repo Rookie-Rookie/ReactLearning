@@ -66,11 +66,11 @@ ul li:hover{
   font-size: 15px;
 }
 
-ul li.task-item-New{
+ul li.task-item-new{
   background-color: beige;
 }
 
-ul li.task-item-Done{
+ul li.task-item-done{
   background-color: lightgreen;
 }
 

@@ -153,7 +153,7 @@ class DisplayAllTasks extends React.Component{
 class TaskItem extends React.Component{
   render(){
     return (
-      <li className={this.props.state === "New" ? "task-item-New" : "task-item-Done"}>
+      <li className={this.props.state === "New" ? "task-item-new" : "task-item-done"}>
         <span className="task-item-state">[{this.props.state}]</span>
         {this.props.content}
         {
