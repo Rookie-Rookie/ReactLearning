@@ -1,0 +1,88 @@
+
+#root{  
+  font-size: 14px;
+  min-width: 500px;
+}
+#root > div{
+  padding: 10px 50px;
+}
+
+/*common*/
+
+
+/*pagetitle*/
+#page-title{
+  padding: 30px 50px;
+  margin: 0px 10px 30px 10px;
+  height: 100px;
+  background-color: aqua;
+  border-radius: 5px;
+}
+
+#page-title h2,p{
+  text-align: center;
+}
+
+/*add-new-task-box*/
+#add-new-task{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 10px;
+  padding: 10px;
+  display: flex;
+}
+#add-new-task input{
+  flex: 1;
+  width: 60%;
+}
+
+#add-new-task .add-new-task-items{
+  display: inline-block;
+  margin: 0 10px;
+  padding: 5px 3px;
+}
+
+/* task items*/
+#display-all-tasks{
+  margin: 0 10px;
+  
+}
+ul{
+padding: 0;
+}
+
+ul li{
+  list-style: none;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+  height: 30px;
+  line-height: 30px;
+}
+
+ul li:hover{
+  font-size: 15px;
+}
+
+ul li.task-item-new{
+  background-color: beige;
+}
+
+ul li.task-item-done{
+  background-color: lightgreen;
+}
+
+.task-item-state{
+  display: inline-block;
+  padding: 0 3px;
+}
+
+.task-item-setdone{
+  display: block;
+  position: relative;
+  float: right;
+  margin: 4px 12px 0 0;
+  padding: 3px;
+}
